@@ -1,0 +1,29 @@
+// styling for main images container, have left min-width out so its always responsive inside its container
+.main-picture-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 800px;
+    width: 100%;
+    min-height: 200px;
+    height: 50vh;
+    background-color: white;
+    box-shadow: 0 5px 20px grey;
+}
+
+.main-picture-container img {
+    width: 80%;
+    height: 60%; 
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+/// MEDIA QUERIES
+//////////////////////////////////////////////////////////////////////////////////////
+
+@media(min-width: 600px){
+    // gives extra height to the image when the screens wider so it doesnt look squished
+    .main-picture-container{
+        height: 70vh
+    }
+}

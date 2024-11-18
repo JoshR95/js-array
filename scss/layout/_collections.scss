@@ -1,0 +1,18 @@
+// adding some space between main image and selected images
+#collections{
+    margin-top: 100px;
+}
+
+
+// this is for the grid layout of the assigned images to each collection
+.allocated-images{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}
+
+
+
+.chosen-image{
+    width: 100%;
+}
