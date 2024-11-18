@@ -5,14 +5,32 @@
     box-shadow: 0 5px 20px grey;
 }
 
+///////////////////////////////////////////////////////////
+/// COLLECTIONS DROPDOWN
+///////////////////////////////////////////////////////////
 
+#collections-selector{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collections-dropdown{
+    padding: 5px;
+    margin: 10px 0 10px 0;
+}
+
+///////////////////////////////////////////////////////////
+/// ALLOCATED IMAGES SECTION
+///////////////////////////////////////////////////////////
+/// 
 // this is for the grid layout of the assigned images to each collection
 .allocated-images{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: auto;
-    gap: 5px;
-    padding: 5px;
+    gap: 10px;
+    padding: 10px;
 }
 
 
@@ -21,6 +39,7 @@
     width: 100%;
     max-width: 300px;
 }
+
 
 //////////////////////////////////////////////////////////////////////////////////////
 /// MEDIA QUERIES

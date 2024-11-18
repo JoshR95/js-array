@@ -13,8 +13,10 @@
     <link rel="stylesheet" href="./css/application.css">
 </head>
 <body>
-
-    <h1>IMAGE PICKER</h1>
+    
+    <header>
+        <h1>IMAGE PICKER</h1>
+    </header>
 
     <div class="container">
         <div class="main-picture-container">
@@ -23,12 +25,22 @@
         <div class="main-picture-input-box">
             <input type="email" placeholder="ENTER YOUR EMAIL ADDRESS" required>
             <div class="main-picture-input-button">
-                <button>GENERATE IMAGE</button>
-                <button>ADD IMAGE TO COLLECTION</button>
+                <button class="main-picture-button">GENERATE</button>
+                <button class="main-picture-button">ADD IMAGE TO COLLECTION</button>
+                <a class="main-picture-button" href="#collections-selector">
+                    <span>
+                        GO TO IMAGES
+                    </span>
+                </a>
             </div>
         </div>
 
         <div id="collections">
+            <div id="collections-selector">
+                <select class="collections-dropdown">
+                    <option value="">SELECT AN EMAIL</option>
+                </select>
+            </div>
             <div class="allocated-images">
                 <div class="sub-picture-container">
                     <img class="chosen-image" src="./images/coming-3605857_1920.jpg">

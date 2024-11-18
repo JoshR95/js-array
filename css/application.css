@@ -139,20 +139,42 @@ h1 {
           justify-content: space-between;
   width: 100%;
 }
-.main-picture-input-button button {
+.main-picture-input-button .main-picture-button {
   width: 40%;
   max-width: 150px;
-  padding: 5px 10px;
+  padding: 5px 3px 10px 3px;
   font-size: 0.6rem;
   margin-top: 10px;
 }
+.main-picture-input-button a {
+  border: 1px solid black;
+  background-color: #efefef;
+  text-decoration: none;
+  color: black;
+}
+.main-picture-input-button a span {
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin-top: 7px;
+}
 
+@media (min-width: 400px) and (max-width: 600px) {
+  .main-picture-input-button .main-picture-button {
+    font-size: 0.7rem;
+  }
+}
+@media (min-width: 601px) and (max-width: 999px) {
+  .main-picture-input-button .main-picture-button {
+    font-size: 0.8rem;
+  }
+}
 @media (min-width: 1000px) {
   .main-picture-input-box input {
     font-size: 1.2rem;
   }
-  .main-picture-input-button button {
-    font-size: 0.8rem;
+  .main-picture-input-button .main-picture-button {
+    font-size: 0.9rem;
   }
 }
 #collections {
@@ -162,12 +184,29 @@ h1 {
           box-shadow: 0 5px 20px grey;
 }
 
+#collections-selector {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.collections-dropdown {
+  padding: 5px;
+  margin: 10px 0 10px 0;
+}
+
 .allocated-images {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: auto;
-  gap: 5px;
-  padding: 5px;
+  gap: 10px;
+  padding: 10px;
 }
 
 .chosen-image {
