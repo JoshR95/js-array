@@ -1,6 +1,8 @@
 // adding some space between main image and selected images
 #collections{
     margin-top: 100px;
+    background-color: white;
+    box-shadow: 0 5px 20px grey;
 }
 
 
@@ -8,11 +10,48 @@
 .allocated-images{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
     gap: 5px;
+    padding: 5px;
 }
 
 
 
 .chosen-image{
     width: 100%;
+    max-width: 300px;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+/// MEDIA QUERIES
+//////////////////////////////////////////////////////////////////////////////////////
+
+@media(min-width: 500px) and (max-width: 850px){
+    .allocated-images{
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: auto;
+    }
+
+}
+
+@media(min-width: 851px) and (max-width: 1150px){
+    .allocated-images{
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: auto;
+    }
+
+}
+
+@media(min-width: 1151px) and (max-width: 1350px){
+    .allocated-images{
+        grid-template-columns: repeat(5, 1fr);
+        grid-auto-rows: auto;
+    }
+}
+
+@media(min-width: 1351px){
+    .allocated-images{
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: auto;
+    }
 }

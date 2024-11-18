@@ -7,6 +7,13 @@ html{
     background-color: $main-background-color; 
 }
 
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0 0 20px 0; // gets rid of top margin so header sits flush at the top and side margins, i left a bigger bottom margin so content doesnt click like a footer
+}
 
 .container{
     display: flex;
