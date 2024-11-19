@@ -5,13 +5,16 @@
     flex-direction: column;
     width: 90%;
     max-height: 100%;
+    max-width: 1200px;
 
 }
 
 .main-picture-container img {
     width: 100%;
-    height: 100%;
-    max-height: 65vh; // this keeps the main image at a reasonable height
+    height: 600px;
+    max-height: 70vh; // this keeps the main image at a reasonable height
+    object-fit: cover; // Maintains aspect ratio while filling space
+    object-position: center; // Centers the image focus
 }
 
 ////////////////////////////////
