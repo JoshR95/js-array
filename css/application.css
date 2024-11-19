@@ -164,6 +164,13 @@ h1 {
   margin-top: 7px;
 }
 
+.error-message {
+  color: red;
+  font-size: 14px;
+  display: none;
+  margin-top: 5px;
+}
+
 @media (min-width: 400px) and (max-width: 600px) {
   .main-picture-input-button .main-picture-button {
     font-size: 0.7rem;
