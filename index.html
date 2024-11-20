@@ -20,24 +20,27 @@
 
     <div class="container">
         <div class="main-picture-container">
-            <div class="main-picture">
-                <img id="main-image" src="https://picsum.photos/1200/600"></img>
-            </div>
-            <div class="main-picture-input-box">
-                <input type="email" placeholder="ENTER YOUR EMAIL ADDRESS" required>
-                <span id="email-error" class="error-message"></span>
-                <div class="main-picture-input-button">
-                    <button class="main-picture-button" id="generate-button">GENERATE RANDOM IMAGE</button>
-                    <button class="main-picture-button" id="add-image-button">ADD IMAGE TO COLLECTION</button>
-                    <a class="main-picture-button" href="#collections-selector">
-                        <span>
-                            GO TO IMAGES
-                        </span>
-                    </a>
+            <div id="main-picture-wrapper">
+                <div class="main-picture">
+                    <img id="main-image" src="https://picsum.photos/1200/600"></img>
+                </div>
+                <div class="main-picture-input-box">
+                    <input type="email" placeholder="ENTER YOUR EMAIL ADDRESS" required>
+                    <span id="email-error" class="error-message"></span>
+                    <div class="main-picture-input-button">
+                        <button class="main-picture-button" id="generate-button">GENERATE RANDOM IMAGE</button>
+                        <button class="main-picture-button" id="add-image-button">ADD IMAGE TO COLLECTION</button>
+                        <a class="main-picture-button" href="#collections-selector">
+                            <span>
+                                GO TO IMAGES
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-
+    </div>
+    <div id="collections-wrapper">
         <div id="collections">
             <div id="collections-selector">
                 <button id="clear-collection-button">Clear Collection</button>
