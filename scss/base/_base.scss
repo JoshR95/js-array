@@ -4,7 +4,7 @@ html{
     line-height: 1.42857143;
     font-family: $primary-font--family;
     font-weight: $primary-font--weight;
-    background-color: $main-background-color; 
+    background-color: $third-color; 
 }
 
 * {
@@ -21,6 +21,7 @@ body{
     align-items: center;
     margin-right: auto;
     margin-left: auto;
+    height: 100vh;
     padding-left: 15px;
     padding-right: 15px;
 }
