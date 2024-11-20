@@ -3,8 +3,9 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 8vh;
     width: 100%;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     margin: 0 0 50px 0;
     color: white;
     text-shadow: 2px 2px 4px grey;
@@ -18,14 +19,15 @@ h1 {
 /// MEDIA QUERIES
 //////////////////////////////////////////////////////////////////////////////////////
 
+
 @media(min-width: 500px) and (max-width: 760px){
     h1{
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 }
 
 @media(min-width: 761px){
     h1{
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
 }

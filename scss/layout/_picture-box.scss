@@ -1,20 +1,26 @@
-// styling for main images container, have left min-width out so its always responsive inside its container
 .main-picture-container{
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
+    height: 80vh;
+}
+
+// styling for main images container, have left min-width out so its always responsive inside its container
+.main-picture{
     width: 90%;
     max-height: 100%;
     max-width: 1200px;
 
 }
 
-.main-picture-container img {
+.main-picture img {
     width: 100%;
     height: 600px;
-    max-height: 70vh; // this keeps the main image at a reasonable height
-    object-fit: cover; // Maintains aspect ratio while filling space
-    object-position: center; // Centers the image focus
+    max-height: 30vh;
+    // max-height: 70vh;
+    object-fit: cover;
+    object-position: center; 
 }
 
 ////////////////////////////////
@@ -97,6 +103,9 @@
             font-size: .7rem;
         }
     }
+    .main-picture img {
+        max-height: 45vh;
+    }
 }
 
 @media(min-width: 601px) and (max-width: 999px){
@@ -104,6 +113,9 @@
         .main-picture-button {
             font-size: .8rem;
         }
+    }
+    .main-picture img {
+        max-height: 60vh;
     }
 }
 
@@ -120,5 +132,10 @@
         .main-picture-button {
             font-size: .9rem;
         }
+    }
+
+    .main-picture img {
+        max-height: 60vh;
+        // object-fit: contain;
     }
 }

@@ -20,31 +20,36 @@
 
     <div class="container">
         <div class="main-picture-container">
-            <img id="main-image" src="https://picsum.photos/1200/600"></img>
-        </div>
-        <div class="main-picture-input-box">
-            <input type="email" placeholder="ENTER YOUR EMAIL ADDRESS" required>
-            <span id="email-error" class="error-message"></span>
-            <div class="main-picture-input-button">
-                <button class="main-picture-button" id="generate-button">GENERATE RANDOM IMAGE</button>
-                <button class="main-picture-button" id="add-image-button">ADD IMAGE TO COLLECTION</button>
-                <a class="main-picture-button" href="#collections-selector">
-                    <span>
-                        GO TO IMAGES
-                    </span>
-                </a>
+            <div class="main-picture">
+                <img id="main-image" src="https://picsum.photos/1200/600"></img>
+            </div>
+            <div class="main-picture-input-box">
+                <input type="email" placeholder="ENTER YOUR EMAIL ADDRESS" required>
+                <span id="email-error" class="error-message"></span>
+                <div class="main-picture-input-button">
+                    <button class="main-picture-button" id="generate-button">GENERATE RANDOM IMAGE</button>
+                    <button class="main-picture-button" id="add-image-button">ADD IMAGE TO COLLECTION</button>
+                    <a class="main-picture-button" href="#collections-selector">
+                        <span>
+                            GO TO IMAGES
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
 
         <div id="collections">
             <div id="collections-selector">
+                <button id="clear-collection-button">Clear Collection</button>
                 <select class="collections-dropdown">
                     <option value="">SELECT AN EMAIL</option>
                 </select>
+                <button id="clear-all-collections-button">Clear all Collections</button>
             </div>
+
             <div class="allocated-images">
                 <div class="sub-picture-container">
-                    <img class="chosen-image" src="./images/coming-3605857_1920.jpg">
+                    <!-- <img class="chosen-image" src="./images/coming-3605857_1920.jpg"> -->
                 </div>
             </div>
         </div>
