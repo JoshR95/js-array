@@ -224,6 +224,89 @@ function displayImagesForEmail(email) {
     });
 }
 
+// CLEARING COLLECTION POP UP
+///////////////////////////////////////////////////////
+
+function showPopup(message){
+    // here we set the promise to await a value to be assigned below to either true or false
+    return new Promise((resolve) => {
+        const popup = document.getElementById('popup-overlay');
+        const messageEl = document.getElementById('popup-message');
+        const confirmBtn = document.getElementById('popup-confirm');
+        const cancelBtn = document.getElementById('popup-cancel');
+
+        // here we display the popup
+        messageEl.textContent = message;
+        popup.style.display = 'block';
+
+        // these onClicks allow us to assign a true or false value which we can then use for confirms to clear collection
+        confirmBtn.onclick = () => {
+            popup.style.display = 'none';
+            resolve(true);
+        }
+
+        cancelBtn.onclick = () => {
+            popup.style.display = 'none';
+            resolve(false);
+        };
+    })
+}
+// the async allows us to wait inside the function
+clearCollectionButton.addEventListener('click', async () => {
+    const selectedEmail = collectionsDropdown.value; 
+
+    
+    if (!selectedEmail){
+        // the pop up makes the code wait for the popup to be closed, confrimed or cancelled
+        await showPopup('Please select a collection to clear');
+        // the return prevents the rest of the function from running
+        return;
+    }
+
+    // here we are storing the true of false we get from showPopup depending on which button is clicked
+    const confirmed = await showPopup(`Are you sure you want to clear the collection for ${selectedEmail}?`);
+    // this is saying if confrimed equals true (confirm was clicked) clear the collection of images
+    if (confirmed) {
+        clearCollection(selectedEmail);
+    }
+})
+
+///  CLEAR ALL COLLECTIONS
+///////////////////////////////////////////
+
+function clearAllCollections() {
+    // this is asigned in the clearCollection function, i added it here so i remebered what it does
+    // const collections = JSON.parse(localStorage.getItem('imageCollections')) || {};
+    // clear all collections from localStorage
+    localStorage.removeItem('imageCollections');
+    // update dropdown
+    updateCollectionsDropdown();
+    document.querySelector('.allocated-images').innerHTML = '';
+    collectionsDropdown.selectedIndex = 0;
+}
+
+// add event listener for the new clear all button
+document.getElementById('clear-all-collections-button').addEventListener('click', async () => {
+    const collections = JSON.parse(localStorage.getItem('imageCollections')) || {};
+    
+    // if no collections exist, show message
+    // object.keys returns a list of all the keys inside collections
+    if (Object.keys(collections).length === 0) {
+        await showPopup('No collections to clear');
+        return;
+    }
+
+    // Confirm before clearing all
+    const confirmed = await showPopup('Are you sure you want to clear ALL collections?');
+    // if confirmed has the value true from the showPopup function it clears all collections
+    if (confirmed) {
+        clearAllCollections();
+    }
+});
+
+
+
+
 
 
 /////////////////////////////////////////////
