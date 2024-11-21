@@ -92,6 +92,29 @@
     }
 }
 
+// pass & error pop up
+///////////////////////
+
+#collection-message {
+    display: none;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+#collection-message.error {
+    color: white;
+    background-color: red;
+}
+
+#collection-message.success {
+    color: white;
+    background-color: green;
+}
+
+//////////
+/// 
 .main-picture-input-button{
     display: flex;
     justify-content: space-between;
@@ -156,7 +179,7 @@
         }
     }
     .main-picture img {
-        max-height: 60vh;
+        max-height: 50vh;
     }
 }
 
@@ -176,7 +199,7 @@
     }
 
     .main-picture img {
-        max-height: 60vh;
+        max-height: 50vh;
         // object-fit: contain;
     }
 }

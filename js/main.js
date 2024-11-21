@@ -64,6 +64,33 @@ function validateEmail(email) {
 // Collection Management
 ////////////////////////////
 
+//// PASS OR ERROR MESSAGE FOR ADDING IMAGES
+/////////////////////////////////////////////
+
+// here we have two parameters the message to display and isError is a set boolean
+// it will default to false if not given
+function showMessage(message, isError = false) {
+    // we assign the div to show the messages
+    const messageElement = document.getElementById('collection-message');
+    // this sets the text content of our message
+    messageElement.textContent = message;
+    // this sets the class name based on isError paramaters true or false
+    // this will be determined when we call the showMessage function
+        // the isError is basically a compacted if else statement
+        // if (isError === true) {
+        //     messageElement.className = 'error';
+        // } else {
+        //     messageElement.className = 'success';
+        // }
+    messageElement.className = isError ? 'error' : 'success';
+    messageElement.style.display = 'block';
+
+    // here we set a timer to display the message for
+    setTimeout(() => {
+        messageElement.style.display = 'none';
+    }, 4000);
+}
+
 // ADDING IMAGES TO EMAILS COLLECTION
 /////////////////////////////////////
 
@@ -85,9 +112,17 @@ addImageButton.addEventListener('click', () => {
     if(!collections[email]){
         collections[email] = [];
     }
+
+    // here we check if the image is already included in the collection, if it is it is given the 
+    // error clase name and the fail pop up appears
+    if(collections[email].includes(imageUrl)){
+        showMessage('Cannot add duplicate image to collection', true)
+        // this stops the code running if the image has already been added, this stops the images being added
+        return;
+    }
+
     // this pushes the current image in main-image into the new collection/ current collection made for the email
     collections[email].push(imageUrl);
-
     // here we store the data in local storage, it has to be stored as a string so we 'stringify' it to be stored, and parse it later to retrieve it
     localStorage.setItem('imageCollections', JSON.stringify(collections));
 
@@ -96,7 +131,13 @@ addImageButton.addEventListener('click', () => {
     collectionsDropdown.value = email; 
     // Display the images for this email
     displayImagesForEmail(email);
+    // if the image hasnt been in the collection already its given the success classname and this pop up appears
+    showMessage(`Added to collection: ${email}`);
 })
+
+
+
+
 
 // CLEARING A SINGLE COLLECTION FUCNTION
 /////////////////////////////////

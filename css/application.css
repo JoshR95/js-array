@@ -65,7 +65,7 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 8vh;
+  height: 6vh;
   width: 100%;
   font-size: 1.8rem;
   margin: 0;
@@ -211,6 +211,24 @@ h1 {
   color: #4B3E2A;
 }
 
+#collection-message {
+  display: none;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+#collection-message.error {
+  color: white;
+  background-color: red;
+}
+
+#collection-message.success {
+  color: white;
+  background-color: green;
+}
+
 .main-picture-input-button {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -265,7 +283,7 @@ h1 {
     font-size: 0.8rem;
   }
   .main-picture img {
-    max-height: 60vh;
+    max-height: 50vh;
   }
 }
 @media (min-width: 1000px) {
@@ -276,7 +294,7 @@ h1 {
     font-size: 0.9rem;
   }
   .main-picture img {
-    max-height: 60vh;
+    max-height: 50vh;
   }
 }
 #collections-wrapper {
@@ -288,7 +306,7 @@ h1 {
           justify-content: center;
   background-color: #DFD3C3;
   width: 100%;
-  height: 80vh;
+  height: 100vh;
   -webkit-box-shadow: 0 5px 40px #4f371f;
           box-shadow: 0 5px 40px #4f371f;
 }
