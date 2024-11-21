@@ -15,6 +15,28 @@ body {
   margin: 0;
 }
 
+button,
+.main-picture-button {
+  cursor: pointer;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: -webkit-transform 0.1s ease;
+  transition: -webkit-transform 0.1s ease;
+  transition: transform 0.1s ease;
+  transition: transform 0.1s ease, -webkit-transform 0.1s ease;
+}
+button:active,
+.main-picture-button:active {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  -webkit-animation: buttonFlash 1s ease;
+          animation: buttonFlash 1s ease;
+}
+
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -49,9 +71,9 @@ h1 {
   margin: 0;
   color: white;
   text-shadow: 2px 2px 4px grey;
-  background-color: #A6896F;
-  -webkit-box-shadow: 0 5px 20px grey;
-          box-shadow: 0 5px 20px grey;
+  background-color: #DFD3C3;
+  -webkit-box-shadow: 0 2px 10px #4f371f;
+          box-shadow: 0 2px 10px #4f371f;
 }
 
 @media (min-width: 500px) and (max-width: 760px) {
@@ -92,6 +114,8 @@ h1 {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: white;
+  -webkit-box-shadow: 0 5px 10px #4f371f;
+          box-shadow: 0 5px 10px #4f371f;
 }
 
 .main-picture {
@@ -134,19 +158,28 @@ h1 {
           box-shadow: 0 5px 20px grey;
 }
 .main-picture-input-box #generate-button {
-  background-color: #B59163;
-  border: 2px solid #4B3E2A;
+  background-color: #996b3b;
+  border: 2px solid #4f371f;
   color: white;
 }
+.main-picture-input-box #generate-button:hover {
+  background-color: #ba844d;
+}
 .main-picture-input-box #add-image-button {
-  background-color: #D9C3A9;
+  background-color: #DFD3C3;
   border: 2px solid #4B3E2A;
   color: black;
+}
+.main-picture-input-box #add-image-button:hover {
+  background-color: #f1ebe4;
 }
 .main-picture-input-box .main-picture-button {
   background-color: #A6896F;
   border: 2px solid #4B3E2A;
   color: white;
+}
+.main-picture-input-box .main-picture-button:hover {
+  background-color: #b9a38f;
 }
 .main-picture-input-box input {
   width: 100%;
@@ -253,9 +286,11 @@ h1 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #A6896F;
+  background-color: #DFD3C3;
   width: 100%;
   height: 80vh;
+  -webkit-box-shadow: 0 5px 40px #4f371f;
+          box-shadow: 0 5px 40px #4f371f;
 }
 
 #collections {
@@ -264,8 +299,9 @@ h1 {
   min-height: 300px;
   height: auto;
   background-color: white;
-  -webkit-box-shadow: 0 5px 20px grey;
-          box-shadow: 0 5px 20px grey;
+  border: 2px solid #996b3b;
+  -webkit-box-shadow: 0 5px 40px #4f371f;
+          box-shadow: 0 5px 40px #4f371f;
 }
 
 #collections-selector {
@@ -292,6 +328,15 @@ h1 {
   max-width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  background-color: #DFD3C3;
+  border: 2px solid #74512D;
+  color: #74512D;
+}
+.collections-dropdown:focus {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 #clear-collection-button {
@@ -304,6 +349,10 @@ h1 {
   color: white;
   border: 2px solid #990000;
 }
+#clear-collection-button:hover {
+  background-color: #cc0000;
+  border: 2px solid red;
+}
 
 #clear-all-collections-button {
   max-width: 100%;
@@ -313,6 +362,9 @@ h1 {
   background-color: #cc0000;
   color: white;
   border: 2px solid #330000;
+}
+#clear-all-collections-button:hover {
+  background-color: red;
 }
 
 .allocated-images {
@@ -371,10 +423,18 @@ h1 {
             flex-direction: row;
   }
   #clear-collection-button {
-    margin: 0 10px 0 0;
+    margin: 0 20px 0 0;
   }
   #clear-all-collections-button {
-    margin: 0 0 0 10px;
+    margin: 0 0 0 20px;
+  }
+  #collections-selector > * {
+    font-size: 0.9rem;
+  }
+}
+@media (min-width: 800px) {
+  #collections-selector > * {
+    padding: 10px;
   }
 }
 @media (min-width: 500px) and (max-width: 850px) {

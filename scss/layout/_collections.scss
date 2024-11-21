@@ -1,9 +1,10 @@
 #collections-wrapper{
     display: flex;
     justify-content: center;
-    background-color: $primary-color;
+    background-color: $second-color;
     width: 100%;
     height: 80vh;
+    box-shadow: 0 5px 40px $fourth-color-darkened;
 }
 
 // adding some space between main image and selected images
@@ -13,7 +14,8 @@
     min-height: 300px;
     height: auto;
     background-color: white;
-    box-shadow: 0 5px 20px grey;
+    border: 2px solid $fourth-color;
+    box-shadow: 0 5px 40px $fourth-color-darkened;
 }
 
 ///////////////////////////////////////////////////////////
@@ -33,6 +35,14 @@
     margin: 10px 0 10px 0;
     max-width: 100%;
     box-sizing: border-box;
+    background-color: $second-color;
+    border: 2px solid #74512D;
+    color: #74512D;
+    // makes the dropdown slightly bigger to show its clicked on
+    &:focus {
+        transform: scale(1.20);
+        transition: all 0.2s ease-in-out;
+    }
 }
 
 #clear-collection-button{
@@ -44,6 +54,10 @@
     background-color: red;
     color: white;
     border: 2px solid darken(red, 20%);  
+    &:hover{
+        background-color: darken(red, 10%);
+        border: 2px solid red;
+    }
 
 }
 
@@ -54,7 +68,10 @@
     // margin-left: 20px;
     background-color: darken(red, 10%);
     color: white;
-    border: 2px solid darken(red, 40%);  
+    border: 2px solid darken(red, 40%);
+    &:hover{
+        background-color: red;
+    } 
 
 }
 
@@ -118,10 +135,20 @@
         flex-direction: row;
     }
     #clear-collection-button{
-        margin: 0 10px 0 0;
+        margin: 0 20px 0 0;
     }
     #clear-all-collections-button{
-        margin: 0 0 0 10px;
+        margin: 0 0 0 20px;
+    }
+    // this makes the font size of the dropdown and buttons bigger
+    #collections-selector > *{
+        font-size: .9rem;
+    }
+}
+
+@media(min-width: 800px){
+    #collections-selector > *{
+        padding: 10px;
     }
 }
 

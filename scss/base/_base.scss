@@ -15,6 +15,21 @@ body{
     margin: 0; // gets rid of top margin so header sits flush at the top and side margins, i left a bigger bottom margin so content doesnt click like a footer
 }
 
+// this adds a pointer to all buttons and anchor buttons, it also moves the buttons when clicked
+button,
+.main-picture-button{
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+    transition: transform 0.1s ease;
+    &:active {
+        transform: translateY(2px);
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+        animation: buttonFlash 1s ease;
+    }
+
+}
+
 .container{
     display: flex;
     flex-direction: column;
