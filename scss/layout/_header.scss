@@ -1,16 +1,21 @@
 
-h1 {
+header{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 6vh;
     width: 100%;
-    font-size: 1.8rem;
-    margin: 0;
-    color: white;
-    text-shadow: 2px 2px 4px grey;
+    max-height: 75px;
     background-color: $second-color;
     box-shadow: 0 2px 10px $fourth-color-darkened;
+}
+
+h1 {
+    // height: 6vh;
+    font-size: 1.8rem;
+    margin: 10px;
+    color: white;
+    text-shadow: 2px 2px 4px grey;
+    
 
 }
 

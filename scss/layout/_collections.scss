@@ -27,7 +27,15 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
+    width: 100%;
+    // we use min() here as the browser will always respect the smallest value, so when the parent is smaller than 180px
+    // it switches to 100% width so it doesnt out grow its container
+    > * {
+        min-width: min(180px, 100%);
+        word-wrap: break-word;       // Allows long words to break
+        
+    }
 }
 
 .collections-dropdown{
@@ -35,9 +43,9 @@
     margin: 10px 0 10px 0;
     max-width: 100%;
     box-sizing: border-box;
-    background-color: $second-color;
+    background-color: darken(#F2F0EB, 5%);
     border: 2px solid #74512D;
-    color: #74512D;
+    color: black;
     // makes the dropdown slightly bigger to show its clicked on
     &:focus {
         transform: scale(1.20);
@@ -94,17 +102,46 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
     background-color: white;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    #popup-message{
+        font-size: 1.5rem;
+    }
 }
+
+
 
 .popup-buttons {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-top: 15px;
+    // selects both buttons and changes their font size
+    > * {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
+
+#popup-confirm{
+    background-color: $second-color;
+    border: 2px solid #4B3E2A;
+    color: black;
+    &:hover{
+        background-color: lighten($second-color, 10%);
+    }
+}
+
+#popup-cancel{
+    background-color: $primary-color;
+    border: 2px solid #4B3E2A;
+    color: white;
+    &:hover{
+        background-color: lighten($primary-color, 10%);
+    }
 }
 
 ///////////////////////////////////////////////////////////
@@ -127,34 +164,6 @@
 }
 
 
-.popup-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-}
-
-.popup-content {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.popup-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 15px;
-}
 
 
 
@@ -162,7 +171,7 @@
 /// MEDIA QUERIES
 //////////////////////////////////////////////////////////////////////////////////////
 
-@media(min-width: 580px){
+@media(min-width: 668px){
     #collections-selector{
         flex-direction: row;
     }
