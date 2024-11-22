@@ -4,6 +4,7 @@ html {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   background-color: #F2F0EB;
+  scroll-behavior: smooth;
 }
 
 * {
@@ -136,6 +137,35 @@ h1 {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+}
+
+.email-suggestions {
+  display: none;
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 150px;
+  overflow-y: auto;
+  width: 100%;
+  bottom: 100%;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.email-suggestion {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.email-suggestion:hover {
+  background-color: #f0f0f0;
+}
+
+/* Make sure the email input container is relative for proper dropdown positioning */
+.main-picture-input-box {
+  position: relative;
 }
 
 .main-picture-input-box {
@@ -304,9 +334,16 @@ h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #DFD3C3;
   width: 100%;
   height: 100vh;
@@ -315,14 +352,44 @@ h1 {
 }
 
 #collections {
-  margin: 100px 0 100px 0;
+  margin: 50px 0 100px 0;
   width: 90%;
-  min-height: 300px;
+  min-height: 400px;
   height: auto;
   background-color: white;
   border: 2px solid #996b3b;
   -webkit-box-shadow: 0 5px 40px #4f371f;
           box-shadow: 0 5px 40px #4f371f;
+}
+
+.bottom-scroll {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
+  color: white;
+  background-color: #A6896F;
+  border: 2px solid #4B3E2A;
+  text-shadow: 1px 1px 4px black;
+  text-decoration: none;
+  font-size: 0.7rem;
+}
+.bottom-scroll:hover {
+  background-color: #b9a38f;
+}
+.bottom-scroll span {
+  margin-top: -10px;
+  padding: 5px;
 }
 
 #collections-selector {
@@ -357,12 +424,6 @@ h1 {
   background-color: #e8e4dc;
   border: 2px solid #74512D;
   color: black;
-}
-.collections-dropdown:focus {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
 }
 
 #clear-collection-button {
@@ -493,6 +554,14 @@ h1 {
   .allocated-images {
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: auto;
+  }
+  .bottom-scroll {
+    font-size: 0.8rem;
+  }
+}
+@media (min-width: 851px) {
+  .bottom-scroll {
+    font-size: 1rem;
   }
 }
 @media (min-width: 851px) and (max-width: 1150px) {

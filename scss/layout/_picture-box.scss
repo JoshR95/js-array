@@ -31,6 +31,34 @@
     object-position: center; 
 }
 
+.email-suggestions {
+    display: none;
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 150px;
+    overflow-y: auto;
+    width: 100%;
+    bottom: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.email-suggestion {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.email-suggestion:hover {
+    background-color: #f0f0f0;
+}
+
+/* Make sure the email input container is relative for proper dropdown positioning */
+.main-picture-input-box {
+    position: relative;
+}
+
 ////////////////////////////////
 /// INPUT/BUTTON BOX
 ////////////////////////////////

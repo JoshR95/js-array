@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="./images/icomoon/style.css">
     <link rel="stylesheet" href="./css/application.css">
 </head>
 <body>
@@ -22,9 +23,10 @@
         <div class="main-picture-container">
             <div id="main-picture-wrapper">
                 <div class="main-picture">
-                    <img id="main-image" src="https://picsum.photos/1200/600"></img>
+                    <img id="main-image" src=""></img>
                 </div>
                 <div class="main-picture-input-box">
+                    <div class="email-suggestions"></div>
                     <input type="email" placeholder="ENTER YOUR EMAIL ADDRESS" required>
                     <span id="email-error" class="error-message"></span>
                     <div id="collection-message"></div>
@@ -42,6 +44,9 @@
         </div>
     </div>
     <div id="collections-wrapper">
+        <a href="#" class="bottom-scroll main-picture-button">
+            <p><span class="icon-arrow-up2"></span>BACK TO THE TOP <span class="icon-arrow-up2"></span></p>
+        </a>
         <div id="popup-overlay" class="popup-overlay">
             <div class="popup-content">
                 <p id="popup-message"></p>

@@ -9,10 +9,18 @@ const imageResolution = "/1200/600";
 // assigning random image to the main-image when the generate button is clicked
 //////////////////////////////////////////////////////////////////////////////////
 
-document.getElementById('generate-button').addEventListener('click', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const mainImage = document.getElementById('main-image');
+    // here we are generating a random number between 0-1000 to then apply to retrieving a random seed
     const randomSeed = Math.floor(Math.random() * 1000);
+    // here we as main.img the src of the website to seed, the random number and the resolution. these are set in global variables
     mainImage.src = `${picsumSeed}${randomSeed}${imageResolution}`;
+        // we added a event listner for the generate random image button so it always has a seed attached to it
+        // without this i has an issue where the first image in a collection would change depending on what the main-image was
+        document.getElementById('generate-button').addEventListener('click', () => {
+            const randomSeed = Math.floor(Math.random() * 1000);
+            mainImage.src = `${picsumSeed}${randomSeed}${imageResolution}`;
+        });
 });
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -23,6 +31,59 @@ const addImageButton = document.getElementById('add-image-button');
 const emailInput = document.querySelector('input[type="email"]');
 const collectionsDropdown = document.querySelector('.collections-dropdown');
 const clearCollectionButton = document.getElementById('clear-collection-button');
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+///  EMAIL INPUT SUGGESTIONS POP UP
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+const emailSuggestionsDiv = document.querySelector('.email-suggestions');
+
+// adding email input event listeners
+emailInput.addEventListener('focus', showEmailSuggestions);
+emailInput.addEventListener('input', showEmailSuggestions);
+// listening for click anywhere outside of the email input box
+document.addEventListener('click', (e) => {
+    if (!emailInput.contains(e.target) && !emailSuggestionsDiv.contains(e.target)) {
+        emailSuggestionsDiv.style.display = 'none';
+    }
+});
+
+
+function showEmailSuggestions() {
+    const collections = JSON.parse(localStorage.getItem('imageCollections')) || {};
+    const inputValue = emailInput.value.toLowerCase();
+    emailSuggestionsDiv.innerHTML = '';
+    
+    // this gets an array of all the stored email addresses
+    const matchingEmails = Object.keys(collections)
+        // filter creates a new array with emails that containe the input value
+        .filter(email => email.toLowerCase().includes(inputValue));
+    
+    // this creates a div for each matching email
+    if (matchingEmails.length > 0) {
+        matchingEmails.forEach(email => {
+            const suggestion = document.createElement('div');
+            // adding class for styling and text content of the email address
+            suggestion.className = 'email-suggestion';
+            suggestion.textContent = email;
+            // listen for a click on a suggestion and closes pop up if clicked
+            suggestion.addEventListener('click', () => {
+                emailInput.value = email;
+                emailSuggestionsDiv.style.display = 'none';
+            });
+            // adds each suggestion to the suggestions container
+            emailSuggestionsDiv.appendChild(suggestion);
+        });
+        // displaying the suggestion container
+        emailSuggestionsDiv.style.display = 'block';
+    // if no matching emails, displaying nothing
+    } else {
+        emailSuggestionsDiv.style.display = 'none';
+    }
+}
 
 ////////////////////////////
 // Email Validation
@@ -47,12 +108,12 @@ function hideEmailError(){
 
 function validateEmail(email) {
     if (!email) {
-        showEmailError('Please enter an email address');
+        showEmailError('PLEASE ENTER A EMAIL ADDRESS');
         return false;
     }
 
     if (!isValidEmail(email)) {
-        showEmailError('Please enter a valid email address');
+        showEmailError('PLEASE ENTER A VALID EMAIL ADDRESS');
         return false;
     }
 
@@ -116,7 +177,7 @@ addImageButton.addEventListener('click', () => {
     // here we check if the image is already included in the collection, if it is it is given the 
     // error clase name and the fail pop up appears
     if(collections[email].includes(imageUrl)){
-        showMessage('Cannot add duplicate image to collection', true)
+        showMessage('CANNOT ADD DUPLICATE IMAGE TO COLLECTION', true)
         // this stops the code running if the image has already been added, this stops the images being added
         return;
     }
@@ -132,7 +193,7 @@ addImageButton.addEventListener('click', () => {
     // Display the images for this email
     displayImagesForEmail(email);
     // if the image hasnt been in the collection already its given the success classname and this pop up appears
-    showMessage(`Added to collection: ${email}`);
+    showMessage(`ADDED TO COLLECTION: ${email}`);
 })
 
 
