@@ -366,10 +366,6 @@ document.getElementById('clear-all-collections-button').addEventListener('click'
 });
 
 
-
-
-
-
 /////////////////////////////////////////////
 // Initialization
 ////////////////////////////////////////////

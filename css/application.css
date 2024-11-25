@@ -292,10 +292,12 @@ h1 {
 }
 
 .error-message {
-  color: red;
-  font-size: 14px;
   display: none;
+  padding: 10px;
+  font-size: 1rem;
   margin-top: 5px;
+  color: white;
+  background-color: red;
 }
 
 @media (min-width: 400px) and (max-width: 600px) {
