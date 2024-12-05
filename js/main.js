@@ -90,6 +90,10 @@ function showEmailSuggestions() {
 ////////////////////////////
 
 function isValidEmail(email) {
+    // Prevent 'test@test' from being used
+    if (email.toLowerCase() === 'test@test') {
+        return false;
+    }
     const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     return emailRegex.test(email) && email.length <= 254;
 }
